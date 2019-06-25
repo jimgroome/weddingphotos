@@ -1,4 +1,5 @@
 import React from 'react';
+import { Container, Row, Col, Navbar } from 'reactstrap';
 
 const Pagination = ({ imagesPerPage, totalImages, paginate }) => {
   const pageNumbers = [];
@@ -6,7 +7,7 @@ const Pagination = ({ imagesPerPage, totalImages, paginate }) => {
     pageNumbers.push(i);
   }
   return (
-    <nav className="pagination">
+    <Navbar className="pagination fixed-bottom navbar-light bg-light">
       {pageNumbers.map(pageNumber => (
         <li key={pageNumber} className="page-item">
           <a
@@ -18,7 +19,7 @@ const Pagination = ({ imagesPerPage, totalImages, paginate }) => {
           </a>
         </li>
       ))}
-    </nav>
+    </Navbar>
   );
 };
 

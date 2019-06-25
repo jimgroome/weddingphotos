@@ -7,7 +7,7 @@ const App = () => {
   const [images, setImages] = useState([]);
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
-  const imagesPerPage = 10;
+  const imagesPerPage = 30;
 
   useEffect(() => {
     const fetchImages = () => {
