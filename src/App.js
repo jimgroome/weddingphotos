@@ -1,7 +1,43 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import imagesArray from './imagesArray';
+import Images from './components/Images';
+import Pagination from './components/Pagination';
 
-function App() {
-  return <div className="App" />;
-}
+const App = () => {
+  const [images, setImages] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+  const imagesPerPage = 10;
+
+  useEffect(() => {
+    const fetchImages = () => {
+      setLoading(true);
+      const res = imagesArray;
+      setImages(res);
+      setLoading(false);
+    };
+    fetchImages();
+  }, []);
+
+  // Get current posts
+  const indexOfLastImage = currentPage * imagesPerPage;
+  const indexOfFirstImage = indexOfLastImage - imagesPerPage;
+  const currentImages = images.slice(indexOfFirstImage, indexOfLastImage);
+
+  const paginate = pageNumber => {
+    setCurrentPage(pageNumber);
+  };
+
+  return (
+    <div>
+      <Images images={currentImages} loading={loading} />
+      <Pagination
+        imagesPerPage={imagesPerPage}
+        totalImages={images.length}
+        paginate={paginate}
+      />
+    </div>
+  );
+};
 
 export default App;

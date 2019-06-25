@@ -1,4 +1,4 @@
-const images = [
+const imagesArray = [
   {
     "id": 1,
     "url": "https://s3.eu-west-2.amazonaws.com/weddingphotos-images/001Chelsea_Jim.jpg"
@@ -2749,4 +2749,4 @@ const images = [
   }
 ];
 
-export default images;
+export default imagesArray;
