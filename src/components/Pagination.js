@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Row, Col, Navbar } from 'reactstrap';
+import { Navbar } from 'reactstrap';
 
 const Pagination = ({ imagesPerPage, totalImages, paginate }) => {
   const pageNumbers = [];
