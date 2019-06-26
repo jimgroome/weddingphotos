@@ -14,7 +14,7 @@ const PaginationComponent = ({ imagesPerPage, totalImages, paginate }) => {
   }
   return (
     <Navbar className='pagination fixed-bottom navbar-light bg-light'>
-      <Container>
+      <Container fluid>
         <Pagination>
           {pageNumbers.map(pageNumber => (
             <PaginationItem key={pageNumber}>
