@@ -36,6 +36,7 @@ const App = () => {
         imagesPerPage={imagesPerPage}
         totalImages={images.length}
         paginate={paginate}
+        currentPage={currentPage}
       />
     </div>
   );
