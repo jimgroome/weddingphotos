@@ -1,5 +1,5 @@
-import React, { Fragment } from 'react';
-import { Container, Row, Col } from 'reactstrap';
+import React, { Fragment } from "react";
+import { Container, Row, Col } from "reactstrap";
 
 const Images = ({ images, loading }) => {
   if (loading) {
@@ -7,11 +7,11 @@ const Images = ({ images, loading }) => {
   }
   return (
     <Fragment>
-      <Container fluid>
+      <Container fluid className='pt-3'>
         <Row>
           {images.map(image => (
-            <Col xs="12" sm="6" key={image.id}>
-              <img src={image.url} className="wedding-image" alt="" />
+            <Col xs='12' sm='6' key={image.id}>
+              <img src={image.url} className='wedding-image' alt='' />
             </Col>
           ))}
         </Row>

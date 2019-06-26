@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import imagesArray from './imagesArray';
-import Images from './components/Images';
-import Pagination from './components/Pagination';
+import React, { useState, useEffect } from "react";
+import imagesArray from "./imagesArray";
+import Images from "./components/Images";
+import PaginationComponent from "./components/Pagination";
 
 const App = () => {
   const [images, setImages] = useState([]);
@@ -24,14 +24,15 @@ const App = () => {
   const indexOfFirstImage = indexOfLastImage - imagesPerPage;
   const currentImages = images.slice(indexOfFirstImage, indexOfLastImage);
 
-  const paginate = pageNumber => {
+  const paginate = (e, pageNumber) => {
+    e.preventDefault();
     setCurrentPage(pageNumber);
   };
 
   return (
     <div>
       <Images images={currentImages} loading={loading} />
-      <Pagination
+      <PaginationComponent
         imagesPerPage={imagesPerPage}
         totalImages={images.length}
         paginate={paginate}

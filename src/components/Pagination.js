@@ -1,26 +1,32 @@
-import React from 'react';
-import { Navbar } from 'reactstrap';
+import React from "react";
+import {
+  Navbar,
+  Container,
+  Pagination,
+  PaginationItem,
+  PaginationLink
+} from "reactstrap";
 
-const Pagination = ({ imagesPerPage, totalImages, paginate }) => {
+const PaginationComponent = ({ imagesPerPage, totalImages, paginate }) => {
   const pageNumbers = [];
   for (let i = 1; i < Math.ceil(totalImages / imagesPerPage); i++) {
     pageNumbers.push(i);
   }
   return (
-    <Navbar className="pagination fixed-bottom navbar-light bg-light">
-      {pageNumbers.map(pageNumber => (
-        <li key={pageNumber} className="page-item">
-          <a
-            href="!#"
-            onClick={() => paginate(pageNumber)}
-            className="page-link"
-          >
-            {pageNumber}
-          </a>
-        </li>
-      ))}
+    <Navbar className='pagination fixed-bottom navbar-light bg-light'>
+      <Container>
+        <Pagination>
+          {pageNumbers.map(pageNumber => (
+            <PaginationItem key={pageNumber}>
+              <PaginationLink href='#' onClick={e => paginate(e, pageNumber)}>
+                {pageNumber}
+              </PaginationLink>
+            </PaginationItem>
+          ))}
+        </Pagination>
+      </Container>
     </Navbar>
   );
 };
 
-export default Pagination;
+export default PaginationComponent;
