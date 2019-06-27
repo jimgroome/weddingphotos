@@ -1,9 +1,13 @@
 import React, { useState, useEffect } from "react";
+import ReactGA from "react-ga";
 import imagesArray from "./imagesArray";
 import Images from "./components/Images";
 import PaginationComponent from "./components/Pagination";
 
 const App = () => {
+  ReactGA.initialize("UA-142839175-3");
+  ReactGA.pageview(window.location.pathname);
+
   const [images, setImages] = useState([]);
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
